@@ -1,6 +1,8 @@
 import math, pprint
 from PIL import Image, ImageDraw
 
+contrast_map = Image.open('contrast_map.jpg')
+
 class Map:
     def __init__(self, filename):
         self.elevations = []
@@ -28,9 +30,9 @@ class Map:
         return contrast_map
 
     def elevation_point_delta(self):
+        path = []
         cur_x = 0
         cur_y = 0
-        path = []
         for cur_y in range(self.y_range):
             cur_y += 1
             while cur_x < self.x_range - 1:
@@ -50,8 +52,9 @@ class Map:
                 next_y = poss_y[min_diffs_index]
 
                 cur_x += 1
-                cur_y = next_y
-                path.append((cur_x, cur_y))  
+                cur_y = 
+                path.append((cur_x, cur_y))
+        print(path)
         return path
 
     def draw_path(self):
@@ -62,13 +65,14 @@ class Map:
         contrast_map.save('Pathfinder_all.jpg')
 
 
+
+    
 if __name__ == "__main__":
 
     map = Map('elevation_small.txt')
-    map.draw_path()
+    map.mapping_all_paths()
+    contrast_map.save('Pathfinder_all.jpg')
     
-
-
 
 
 
